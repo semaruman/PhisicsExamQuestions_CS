@@ -45,7 +45,6 @@ namespace PhisicsExamQuestionsConsoleApp
 
             while (userChoice.ToLower() != "нет" && userChoice.ToLower() != "no")
             {
-                string[] results = GetResults();
                 string[] questions = GetQuestions();
                 string[] answers = GetAnswers();
 
@@ -64,9 +63,9 @@ namespace PhisicsExamQuestionsConsoleApp
 
                     Console.Clear();
                 }
-                Console.WriteLine($"{userName}, по результатам теста вы {results[trueAnswersCounter]}");
+                Console.WriteLine($"{userName}, по результатам теста вы {GetResults(trueAnswersCounter, questions.Length)}");
 
-                string content = $"{userName}\t{trueAnswersCounter}\t\t\t\t{results[trueAnswersCounter]}";
+                string content = $"{userName}\t{trueAnswersCounter}\t\t\t\t{GetResults(trueAnswersCounter, questions.Length)}";
                 using (StreamWriter sw = new StreamWriter(GetFilePath(), true, System.Text.Encoding.Default))
                 {
                     sw.WriteLine(content);
@@ -110,39 +109,54 @@ namespace PhisicsExamQuestionsConsoleApp
         {
             string[] questions = new string[]
             {
-                "Сколько будет два плюс два умноженние на два?",
-                "Бревно нужно распилить на 10 частей, сколько надо сделать распилов?",
-                "На двух руках 10 пальцев. Сколько пальцев на 5 руках?",
-                "Укол делают каждые полчаса, сколько нужно минут для трёх уколов?",
-                "Пять свечей горело, две потухли. Сколько свечей осталось?"
+                // 1 вопрос
+                "Что такое диффузия?\n" +
+                "1 - явление непрерывного хаотического движения частиц\n" +
+                "2 - явление взаимного проникновения веществ друг в друга\n" +
+                "3 - мера средней кинетической энергии частиц", 
+
+                // 2 вопрос
+                "Что такое Броуновское движение?\n" +
+                "1 - мера средней кинетической энергии частиц\n" +
+                "2 - результат многочисленных соударений быстро движущихся молекул со стенкой\n" +
+                "3 - явление непрерывного хаотического движения частиц",
+
+                // 3 вопрос
+                "Как взаимодействуют молекулы в МКТ?\n" +
+                "1 - силами притяжения и отталкивания\n" +
+                "2 - силой упругости\n" +
+                "3 - силой трения",
             };
             return questions;
         }
-
-        static string[] GetResults()
-        {
-            string[] results = new string[] {
-                "Кретин",
-                "Идиот",
-                "Дурак",
-                "Нормальный",
-                "Умный",
-                "Гений"
-            };
-            return results;
-        }
-
         static string[] GetAnswers()
         {
             string[] answers = new string[]
             {
-                "6",
-                "9",
-                "25",
-                "60",
-                "2"
+                "2",
+                "3",
+                "1",
             };
             return answers;
+        }
+        static string GetResults(int trueAnswersCounter, int countQuestions)
+        {
+            if ((double)trueAnswersCounter / countQuestions >= 0.80)
+            {
+                return "Готов";
+            }
+            else if ((double)trueAnswersCounter / countQuestions >= 0.60)
+            {
+                return "Почти готов";
+            }
+            else if ((double)trueAnswersCounter / countQuestions >= 0.40)
+            {
+                return "Нормальный";
+            }
+            else
+            {
+                return "Совсем не готов";
+            }
         }
 
         static string GetUserName()
