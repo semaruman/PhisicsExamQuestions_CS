@@ -7,13 +7,13 @@ namespace PhisicsExamQuestionsConsoleApp
 {
     public class Test
     {
-        private List<Question> questions;
+        public List<Question> Questions;
         private ResultsTable resTable;
         private User currentUser;
 
-        public Test(List<Question> questions, ResultsTable resTable, User currentUser)
+        public Test(List<Question> Questions, ResultsTable resTable, User currentUser)
         {
-            this.questions = questions;
+            this.Questions = Questions;
             this.resTable = resTable;
             this.currentUser = currentUser;
         }
@@ -22,21 +22,21 @@ namespace PhisicsExamQuestionsConsoleApp
         {
 
             int trueAnswersCounter = 0;
-            for (int i = 0; i < questions.Count; i++)
+            for (int i = 0; i < Questions.Count; i++)
             {
-                int questionNumber = GetQuestionNumber(questions);
-                Console.WriteLine($"Вопрос {i + 1}: {questions[questionNumber]}");
-                questions[questionNumber].Content = "-";
+                int questionNumber = GetQuestionNumber(Questions);
+                Console.WriteLine($"Вопрос {i + 1}: {Questions[questionNumber]}");
+                Questions[questionNumber].Content = "-";
 
                 string userAnswer = Console.ReadLine();
-                if (userAnswer == questions[questionNumber].Answer)
+                if (userAnswer == Questions[questionNumber].Answer)
                 {
                     trueAnswersCounter++;
                 }
 
                 Console.Clear();
             }
-            currentUser.Result = GetResults(trueAnswersCounter, questions.Count);
+            currentUser.Result = GetResults(trueAnswersCounter, Questions.Count);
 
             Console.WriteLine($"{currentUser.Name}, по результатам теста вы {currentUser.Result}");
 
@@ -48,18 +48,18 @@ namespace PhisicsExamQuestionsConsoleApp
 
         public void AddQuestion(Question question)
         {
-            questions.Add(question);
+            Questions.Add(question);
         }
 
-        private int GetQuestionNumber(List<Question> questions)
+        private int GetQuestionNumber(List<Question> Questions)
         {
             Random rnd = new Random();
             int questionNumber;
             while (true)
             {
-                questionNumber = rnd.Next(questions.Count);
+                questionNumber = rnd.Next(Questions.Count);
                 // знаком "-" отмечаю использованные вопросы
-                if (questions[questionNumber].Content == "-") // если вопрос был задан, то пропускаю
+                if (Questions[questionNumber].Content == "-") // если вопрос был задан, то пропускаю
                 {
                     continue;
                 }

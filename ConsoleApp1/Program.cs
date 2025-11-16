@@ -7,9 +7,10 @@ namespace PhisicsExamQuestionsConsoleApp
     {
         public static void Main(string[] args)
         {
-            List<Question> questions = GetQuestions();
             User user = UserInit();
-            ResultsTable table = new ResultsTable(GetFilePath());
+            ResultsTable table = new ResultsTable(GetResultsFilePath());
+            DataQuestions questionsTable = new DataQuestions(GetQuestionsFilePath());
+            List<Question> questions = questionsTable.LoadArray();
             Test test = new Test(questions, table, user);
 
             string menuValue;
@@ -18,6 +19,8 @@ namespace PhisicsExamQuestionsConsoleApp
                 Console.WriteLine("\tВыберете опцию");
                 Console.WriteLine("1 - пройти тест");
                 Console.WriteLine("2 - вывести таблицу результатов");
+                Console.WriteLine("3 - добавить свой вопрос");
+                Console.WriteLine("4 - удалить последний вопрос");
                 Console.WriteLine("0 - выход из программы");
                 menuValue = Console.ReadLine();
 
@@ -25,11 +28,30 @@ namespace PhisicsExamQuestionsConsoleApp
                 {
                     Console.Clear();
                     test.Take();
+                    questions = questionsTable.LoadArray();
+                    test.Questions = questions;
+                    Console.Clear();
                 }
                 else if (menuValue == "2")
                 {
                     Console.Clear();
                     table.PrintTable();
+                }
+                else if (menuValue == "3")
+                {
+                    Console.Clear();
+                    AddUserQuestion(questions);
+                    questionsTable.SaveArray(questions);
+                    Console.Clear();
+                }
+                else if (menuValue == "4")
+                {
+                    Console.Clear();
+                    questions.RemoveAt(questions.Count - 1);
+                    questionsTable.SaveArray(questions);
+                    Console.WriteLine("Вопрос успешно удалён!");
+                    Console.ReadLine();
+                    Console.Clear();
                 }
                 else if (menuValue == "0")
                 {
@@ -42,6 +64,10 @@ namespace PhisicsExamQuestionsConsoleApp
             }
         }
         
+        /*
+        // Сначала все вопросы писал здессь. 
+        // Потом сделал возможность добавлять вопросы во время выполнения программы.
+        // Все вопросы находятся в базе данных формата json (questions.json)
         static List<Question> GetQuestions()
         {
             List<Question> questions = new List<Question>
@@ -67,6 +93,7 @@ namespace PhisicsExamQuestionsConsoleApp
             };
             return questions;
         }
+        */
 
         static User UserInit()
         {
@@ -76,9 +103,33 @@ namespace PhisicsExamQuestionsConsoleApp
 
             return new User(name);
         }
-        static string GetFilePath()
+
+        static void AddUserQuestion(List<Question> questions)
         {
-            return @"D:\files_csharp\db.txt";
+            Console.WriteLine("Введите содержимое вопроса:");
+            string content = Console.ReadLine();
+
+            Console.WriteLine("Введите 1-ый вариант ответа:");
+            content += "\n1 - " + Console.ReadLine();
+
+            Console.WriteLine("Введите 2-ый вариант ответа:");
+            content += "\n2 - " + Console.ReadLine();
+
+            Console.WriteLine("Введите 3-ый вариант ответа:");
+            content += "\n3 - " + Console.ReadLine();
+
+            Console.WriteLine("Введите правильный ответ на вопрос:");
+            string answer = Console.ReadLine();
+
+            questions.Add(new Question(content, answer));
+        }
+        static string GetResultsFilePath()
+        {
+            return @"D:\C#\PRO C#\4. PRO C# ООП на практике ВСЁ САМ\2. Урок 1. Приложение для тестирования пользователей. Начало\2.1 Начинаем разработку\results.txt";
+        }
+        static string GetQuestionsFilePath()
+        {
+            return @"D:\C#\PRO C#\4. PRO C# ООП на практике ВСЁ САМ\2. Урок 1. Приложение для тестирования пользователей. Начало\2.1 Начинаем разработку\questions.json";
         }
     }
 }
