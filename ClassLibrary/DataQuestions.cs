@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 
-namespace PhisicsExamQuestionsConsoleApp
+namespace PhisicsExamQuestions.Common
 {
     public class DataQuestions
     {
@@ -28,6 +28,10 @@ namespace PhisicsExamQuestionsConsoleApp
         public DataQuestions(string filePath)
         {
             this.filePath = filePath;
+        }
+        public DataQuestions()
+        {
+            this.filePath = @"D:\C#\PRO C#\4. PRO C# ООП на практике ВСЁ САМ\2. Урок 1. Приложение для тестирования пользователей. Начало\2.1 Начинаем разработку\questions.json";
         }
     }
 }

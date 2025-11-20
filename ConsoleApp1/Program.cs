@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using PhisicsExamQuestions.Common;
 
 namespace PhisicsExamQuestionsConsoleApp
 {
@@ -123,11 +124,11 @@ namespace PhisicsExamQuestionsConsoleApp
 
             questions.Add(new Question(content, answer));
         }
-        static string GetResultsFilePath()
+        public static string GetResultsFilePath()
         {
             return @"D:\C#\PRO C#\4. PRO C# ООП на практике ВСЁ САМ\2. Урок 1. Приложение для тестирования пользователей. Начало\2.1 Начинаем разработку\results.txt";
         }
-        static string GetQuestionsFilePath()
+        public static string GetQuestionsFilePath()
         {
             return @"D:\C#\PRO C#\4. PRO C# ООП на практике ВСЁ САМ\2. Урок 1. Приложение для тестирования пользователей. Начало\2.1 Начинаем разработку\questions.json";
         }

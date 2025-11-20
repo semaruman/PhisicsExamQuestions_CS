@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PhisicsExamQuestionsConsoleApp
+namespace PhisicsExamQuestions.Common
 {
     public class Question
     {

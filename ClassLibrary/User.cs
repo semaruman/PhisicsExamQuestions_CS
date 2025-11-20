@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PhisicsExamQuestionsConsoleApp
+namespace PhisicsExamQuestions.Common
 {
     public class User
     {

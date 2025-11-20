@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PhisicsExamQuestionsConsoleApp
+namespace PhisicsExamQuestions.Common
 {
     public class Test
     {
@@ -51,7 +51,7 @@ namespace PhisicsExamQuestionsConsoleApp
             Questions.Add(question);
         }
 
-        private int GetQuestionNumber(List<Question> Questions)
+        public static int GetQuestionNumber(List<Question> Questions)
         {
             Random rnd = new Random();
             int questionNumber;
@@ -69,7 +69,7 @@ namespace PhisicsExamQuestionsConsoleApp
                 }
             }
         }
-        private string GetResults(int trueAnswersCounter, int countQuestions)
+        public static string GetResults(int trueAnswersCounter, int countQuestions)
         {
             if ((double)trueAnswersCounter / countQuestions >= 0.80)
             {
