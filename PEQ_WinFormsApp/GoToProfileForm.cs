@@ -32,6 +32,10 @@ namespace PEQ_WinFormsApp
                 {
                     Program.user = userInUsers(userNameTextBox.Text);
                     MessageBox.Show($"Добро пожаловать, {Program.user.Name}", "Вход в профиль выполнен успешно");
+                    YourProfile form = new YourProfile();
+                    form.Show();
+                    Close();
+                    return;
                 }
                 else
                 {
@@ -44,10 +48,11 @@ namespace PEQ_WinFormsApp
                 Program.user = new User(userNameTextBox.Text, userPasswordTextBox.Text);
                 UsersData.AddUser(new User(userNameTextBox.Text, userPasswordTextBox.Text));
                 MessageBox.Show($"Добро пожаловать, {Program.user.Name}", "Вы успешно зарегистрировались");
+                YourProfile form = new YourProfile();
+                form.Show();
+                Close();
+                return;
             }
-            MenuForm menuForm = new MenuForm();
-            menuForm.Show();
-            Close();
         }
 
         private User userInUsers(string userName)

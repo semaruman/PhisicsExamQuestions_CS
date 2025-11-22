@@ -20,6 +20,7 @@ namespace PEQ_WinFormsApp
 
         private void YourProfile_Load(object sender, EventArgs e)
         {
+            yourProfileTitle.Text = Program.user.Name;
             totalAttemtsLabel.Text += $" {Program.user.TotalAttempts}";
             theBestScoreLabel.Text += $" {Program.user.TheBestScore}";
         }
