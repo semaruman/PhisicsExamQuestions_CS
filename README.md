@@ -1,6 +1,7 @@
 В мае 2026 года у меня будет экзамен по физике. Билеты с вопросами у меня есть, поэтому я решил написать приложение на C#, которое поможет проверить свои знания и подготовиться к экзамену. 
 Главное окно приложения: 
-<img width="810" height="611" alt="image" src="https://github.com/user-attachments/assets/02c06750-fa79-4fd5-9b04-a0d52a2f6c45" /> 
+<img width="793" height="610" alt="image" src="https://github.com/user-attachments/assets/6b988503-9889-4079-ba1f-289fd816aabf" />
+
 
 Пройти тест (порядок вопросов определяется случайно): 
 <img width="795" height="599" alt="image" src="https://github.com/user-attachments/assets/73032114-ebf3-467e-a39b-0ac140114227" />
@@ -14,10 +15,19 @@
 
 
 Таблица результатов:
-<img width="807" height="612" alt="image" src="https://github.com/user-attachments/assets/e49ab12f-e261-4ca6-826d-6fddf7a430bf" />
+<img width="801" height="603" alt="image" src="https://github.com/user-attachments/assets/dd76bc7e-f7a9-436c-8242-01369a9fd534" />
+
 
 Удалить последний добавленный вопрос:
 <img width="946" height="642" alt="image" src="https://github.com/user-attachments/assets/b5e81e08-e20e-41cd-bca1-81dc2ff2bfd5" />
+
+Профиль:
+<img width="803" height="606" alt="image" src="https://github.com/user-attachments/assets/d290e31b-dc6f-4bc1-843d-ff4f2a8ca7da" />
+
+После входа в профиль:
+<img width="803" height="605" alt="image" src="https://github.com/user-attachments/assets/a9d38c32-8553-4b72-904d-bc786a276b05" />
+
+
 
 Кнопка "Выход" завершает программу.
 Кнопка "Войти в профиль на данный момент не работает.
