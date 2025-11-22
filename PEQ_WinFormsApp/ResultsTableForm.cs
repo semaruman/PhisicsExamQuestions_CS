@@ -21,7 +21,12 @@ namespace PEQ_WinFormsApp
         private void ResultsTableForm_Load(object sender, EventArgs e)
         {
             ResultsTable resTable = new ResultsTable(FilePath.GetResultsFilePath());
-            resultsTableContentLabel.Text = resTable.GetTable();
+            string[] strings = resTable.GetTable().Split('\n');
+            for (int i = 0; i < strings.Length; i++)
+            {
+                string[] str = strings[i].Split("/");
+                resultsTableDataGridView.Rows.Add(str);
+            }
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -29,6 +34,11 @@ namespace PEQ_WinFormsApp
             MenuForm menuForm = new MenuForm();
             menuForm.Show();
             Close();
+        }
+
+        private void tableListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

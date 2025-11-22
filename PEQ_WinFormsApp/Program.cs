@@ -1,3 +1,5 @@
+using PhisicsExamQuestions.Common;
+
 namespace PEQ_WinFormsApp
 {
     internal static class Program
@@ -13,5 +15,6 @@ namespace PEQ_WinFormsApp
             ApplicationConfiguration.Initialize();
             Application.Run(new MenuForm());
         }
+        public static User user = new User("Untiled", "");
     }
 }

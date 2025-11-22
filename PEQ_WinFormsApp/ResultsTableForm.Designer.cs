@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             resultsTableTitleLabel = new Label();
-            resultsTableContentLabel = new Label();
             exitButton = new Button();
+            resultsTableDataGridView = new DataGridView();
+            NameColumn = new DataGridViewTextBoxColumn();
+            trueAnswersCountColumn = new DataGridViewTextBoxColumn();
+            readyColumn = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)resultsTableDataGridView).BeginInit();
             SuspendLayout();
             // 
             // resultsTableTitleLabel
@@ -43,16 +47,6 @@
             resultsTableTitleLabel.TabIndex = 0;
             resultsTableTitleLabel.Text = "Таблица результатов";
             // 
-            // resultsTableContentLabel
-            // 
-            resultsTableContentLabel.AutoSize = true;
-            resultsTableContentLabel.Font = new Font("Calibri", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            resultsTableContentLabel.Location = new Point(164, 111);
-            resultsTableContentLabel.Name = "resultsTableContentLabel";
-            resultsTableContentLabel.Size = new Size(71, 23);
-            resultsTableContentLabel.TabIndex = 1;
-            resultsTableContentLabel.Text = "Content";
-            // 
             // exitButton
             // 
             exitButton.Location = new Point(304, 485);
@@ -63,17 +57,42 @@
             exitButton.UseVisualStyleBackColor = true;
             exitButton.Click += exitButton_Click;
             // 
+            // resultsTableDataGridView
+            // 
+            resultsTableDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resultsTableDataGridView.Columns.AddRange(new DataGridViewColumn[] { NameColumn, trueAnswersCountColumn, readyColumn });
+            resultsTableDataGridView.Location = new Point(226, 116);
+            resultsTableDataGridView.Name = "resultsTableDataGridView";
+            resultsTableDataGridView.Size = new Size(343, 363);
+            resultsTableDataGridView.TabIndex = 3;
+            // 
+            // NameColumn
+            // 
+            NameColumn.HeaderText = "Имя";
+            NameColumn.Name = "NameColumn";
+            // 
+            // trueAnswersCountColumn
+            // 
+            trueAnswersCountColumn.HeaderText = "Кол-во правильных ответов";
+            trueAnswersCountColumn.Name = "trueAnswersCountColumn";
+            // 
+            // readyColumn
+            // 
+            readyColumn.HeaderText = "Готовность";
+            readyColumn.Name = "readyColumn";
+            // 
             // ResultsTableForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(resultsTableDataGridView);
             Controls.Add(exitButton);
-            Controls.Add(resultsTableContentLabel);
             Controls.Add(resultsTableTitleLabel);
             Name = "ResultsTableForm";
             Text = "ResultsTableForm";
             Load += ResultsTableForm_Load;
+            ((System.ComponentModel.ISupportInitialize)resultsTableDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -81,7 +100,10 @@
         #endregion
 
         private Label resultsTableTitleLabel;
-        private Label resultsTableContentLabel;
         private Button exitButton;
+        private DataGridView resultsTableDataGridView;
+        private DataGridViewTextBoxColumn NameColumn;
+        private DataGridViewTextBoxColumn trueAnswersCountColumn;
+        private DataGridViewTextBoxColumn readyColumn;
     }
 }

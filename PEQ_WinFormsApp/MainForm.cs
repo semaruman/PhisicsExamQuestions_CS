@@ -11,7 +11,7 @@ namespace PEQ_WinFormsApp
         private int questionNumber;
         private int trueAnswersCounter = 0;
         private int questionCounter = 1;
-        public User user;
+        public User user = Program.user;
         private ResultsTable resTable = new ResultsTable(FilePath.GetResultsFilePath());
 
         public mainForm()
@@ -27,7 +27,6 @@ namespace PEQ_WinFormsApp
         {
             var questionTable = new DataQuestions(FilePath.GetQuestionsFilePath());
 
-            user = new User("NoName");
             questions = questionTable.LoadArray();
 
             ShowNextQuestion();
@@ -38,21 +37,12 @@ namespace PEQ_WinFormsApp
         {
             questionNumber = Test.GetQuestionNumber(questions);
             questionContentLabel.Text = questions[questionNumber].ToString();
+
         }
+
 
         private void nextButton_Click(object sender, EventArgs e)
         {
-            if (questionCounter == questions.Count)
-            {
-                user.Result = Test.GetResults(trueAnswersCounter, questions.Count);
-                resTable.AddToTable(user, trueAnswersCounter);
-                MessageBox.Show($"{user.Name}, по результатам теста вы {user.Result}\nКоличество правильных ответов: {trueAnswersCounter} из {questions.Count}", "Ваш разультат тестирования!");
-                MenuForm menu = new MenuForm();
-                menu.Show();
-                Close();
-                return;
-            }
-
             string userAnswer = userAnswerTextBox.Text;
             if (userAnswer == questions[questionNumber].Answer)
             {
@@ -61,8 +51,26 @@ namespace PEQ_WinFormsApp
             questions[questionNumber].Content = "-";
 
             questionNumberLabel.Text = $"Вопрос №{questionCounter + 1}";
-            questionCounter++;
+
             userAnswerTextBox.Text = "";
+
+            if (questionCounter == questions.Count)
+            {
+                user.Result = Test.GetResults(trueAnswersCounter, questions.Count);
+                user.TotalAttempts += 1;
+                if (trueAnswersCounter >= user.TheBestScore)
+                {
+                    user.TheBestScore = trueAnswersCounter;
+                }
+                resTable.AddToTable(user, trueAnswersCounter);
+                MessageBox.Show($"{user.Name}, по результатам теста вы {user.Result}\nКоличество правильных ответов: {trueAnswersCounter} из {questions.Count}", "Ваш разультат тестирования!");
+                MenuForm menu = new MenuForm();
+                menu.Show();
+                Close();
+                return;
+            }
+
+            questionCounter++;
             ShowNextQuestion();
 
             

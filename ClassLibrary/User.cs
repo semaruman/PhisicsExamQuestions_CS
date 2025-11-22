@@ -10,10 +10,16 @@ namespace PhisicsExamQuestions.Common
         public string Name {  get; set; }
 
         public string Result {  get; set; }
+        public string Password {  get; set; }
 
-        public User(string name)
+        public int TotalAttempts = 0;
+
+        public int TheBestScore = 0;
+
+        public User(string name, string password)
         {
             Name = name;
+            Password = password;
         }
     }
 }

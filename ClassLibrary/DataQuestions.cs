@@ -23,7 +23,7 @@ namespace PhisicsExamQuestions.Common
                 string json = File.ReadAllText(filePath);
                 return JsonSerializer.Deserialize<List<Question>>(json);
             }
-            return new List<Question>(); // возвращаем пустой массив если файла нет
+            return new List<Question>(); // возвращаем пустой список если файла нет
         }
         public DataQuestions(string filePath)
         {

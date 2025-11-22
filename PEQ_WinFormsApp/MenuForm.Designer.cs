@@ -98,7 +98,7 @@
             GoToProfileButton.Name = "GoToProfileButton";
             GoToProfileButton.Size = new Size(126, 59);
             GoToProfileButton.TabIndex = 6;
-            GoToProfileButton.Text = "Войти в профиль";
+            GoToProfileButton.Text = "Профиль";
             GoToProfileButton.UseVisualStyleBackColor = true;
             GoToProfileButton.Click += GoToProfileButton_Click;
             // 

@@ -16,5 +16,9 @@ namespace PhisicsExamQuestions.Common
         {
             return @"D:\C#\PRO C#\4. PRO C# ООП на практике ВСЁ САМ\2. Урок 1. Приложение для тестирования пользователей. Начало\2.1 Начинаем разработку\questions.json";
         }
+        public static string GetUsersFilePath()
+        {
+            return @"D:\C#\PRO C#\4. PRO C# ООП на практике ВСЁ САМ\2. Урок 1. Приложение для тестирования пользователей. Начало\2.1 Начинаем разработку\users.json";
+        }
     }
 }

@@ -50,7 +50,18 @@ namespace PEQ_WinFormsApp
 
         private void GoToProfileButton_Click(object sender, EventArgs e)
         {
-
+            if (Program.user.Name == "Untiled")
+            {
+                var form = new GoToProfileButton();
+                form.Show();
+                Hide();
+            }
+            else
+            {
+                var form = new YourProfile();
+                form.Show();
+                Hide();
+            }
         }
 
         private void exitButton_Click(object sender, EventArgs e)
