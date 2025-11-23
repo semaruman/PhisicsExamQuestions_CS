@@ -48,9 +48,7 @@ namespace PEQ_WinFormsApp
             {
                 trueAnswersCounter++;
             }
-            questions[questionNumber].Content = "-";
-
-            questionNumberLabel.Text = $"Вопрос №{questionCounter + 1}";
+            questions[questionNumber].Content = "-";         
 
             userAnswerTextBox.Text = "";
 
@@ -69,6 +67,7 @@ namespace PEQ_WinFormsApp
                 Close();
                 return;
             }
+            questionNumberLabel.Text = $"Вопрос №{questionCounter + 1}";
 
             questionCounter++;
             ShowNextQuestion();

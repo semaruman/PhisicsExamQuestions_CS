@@ -184,7 +184,7 @@
             Controls.Add(exitButton);
             Controls.Add(addQuestionButton);
             Name = "AddUserQuestionForm";
-            Text = "AddUserQuestionForm";
+            Text = "Добавление вопроса";
             ResumeLayout(false);
             PerformLayout();
         }

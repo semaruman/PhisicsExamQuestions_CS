@@ -106,7 +106,7 @@
             Controls.Add(userNameTextBox);
             Controls.Add(label1);
             Name = "GoToProfileButton";
-            Text = "GoToProfileForm";
+            Text = "Войти в профиль";
             ResumeLayout(false);
             PerformLayout();
         }

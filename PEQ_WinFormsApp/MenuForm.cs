@@ -59,6 +59,7 @@ namespace PEQ_WinFormsApp
             else
             {
                 var form = new YourProfile();
+                form.Text = $"Профиль пользователя {Program.user.Name}";
                 form.Show();
                 Hide();
             }

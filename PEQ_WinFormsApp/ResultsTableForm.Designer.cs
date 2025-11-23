@@ -90,7 +90,7 @@
             Controls.Add(exitButton);
             Controls.Add(resultsTableTitleLabel);
             Name = "ResultsTableForm";
-            Text = "ResultsTableForm";
+            Text = "Таблица результатов";
             Load += ResultsTableForm_Load;
             ((System.ComponentModel.ISupportInitialize)resultsTableDataGridView).EndInit();
             ResumeLayout(false);

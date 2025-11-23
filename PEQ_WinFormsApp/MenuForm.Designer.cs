@@ -126,7 +126,7 @@
             Controls.Add(firstModeButton);
             Controls.Add(menuTitleLabel);
             Name = "MenuForm";
-            Text = "Тест по физике";
+            Text = "Главное меню";
             ResumeLayout(false);
             PerformLayout();
         }
