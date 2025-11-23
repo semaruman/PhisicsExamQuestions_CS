@@ -8,7 +8,7 @@ namespace PhisicsExamQuestions.Common
 {
     public class ResultsTable
     {
-        public readonly string Path;
+        public readonly string Path = FilePath.GetResultsFilePath();
         public ResultsTable(string path)
         {
             this.Path = path;

@@ -9,8 +9,8 @@ namespace PhisicsExamQuestionsConsoleApp
         public static void Main(string[] args)
         {
             User user = UserInit();
-            ResultsTable table = new ResultsTable(GetResultsFilePath());
-            DataQuestions questionsTable = new DataQuestions(GetQuestionsFilePath());
+            ResultsTable table = new ResultsTable(FilePath.GetResultsFilePath());
+            DataQuestions questionsTable = new DataQuestions(FilePath.GetQuestionsFilePath());
             List<Question> questions = questionsTable.LoadArray();
             Test test = new Test(questions, table, user);
 
@@ -102,7 +102,7 @@ namespace PhisicsExamQuestionsConsoleApp
             string name = Console.ReadLine();
             Console.Clear();
 
-            return new User(name);
+            return new User(name, "1");
         }
 
         static void AddUserQuestion(List<Question> questions)
@@ -123,14 +123,6 @@ namespace PhisicsExamQuestionsConsoleApp
             string answer = Console.ReadLine();
 
             questions.Add(new Question(content, answer));
-        }
-        public static string GetResultsFilePath()
-        {
-            return @"D:\C#\PRO C#\4. PRO C# ООП на практике ВСЁ САМ\2. Урок 1. Приложение для тестирования пользователей. Начало\2.1 Начинаем разработку\results.txt";
-        }
-        public static string GetQuestionsFilePath()
-        {
-            return @"D:\C#\PRO C#\4. PRO C# ООП на практике ВСЁ САМ\2. Урок 1. Приложение для тестирования пользователей. Начало\2.1 Начинаем разработку\questions.json";
         }
     }
 }
