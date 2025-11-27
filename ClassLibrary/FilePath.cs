@@ -10,15 +10,15 @@ namespace PhisicsExamQuestions.Common
     {
         public static string GetResultsFilePath()
         {
-            return @"D:\C#\PRO C#\4. PRO C# ООП на практике ВСЁ САМ\1. Приложение-тестировщик по физике\2.1 Начинаем разработку\results.txt";
+            return @"results.txt";
         }
         public static string GetQuestionsFilePath()
         {
-            return @"D:\C#\PRO C#\4. PRO C# ООП на практике ВСЁ САМ\1. Приложение-тестировщик по физике\2.1 Начинаем разработку\questions.json";
+            return @"questions.json";
         }
         public static string GetUsersFilePath()
         {
-            return @"D:\C#\PRO C#\4. PRO C# ООП на практике ВСЁ САМ\1. Приложение-тестировщик по физике\2.1 Начинаем разработку\users.json";
+            return @"users.json";
         }
     }
 }
