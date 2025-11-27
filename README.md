@@ -1,34 +1,59 @@
 В мае 2026 года у меня будет экзамен по физике. Билеты с вопросами у меня есть, поэтому я решил написать приложение на C#, которое поможет проверить свои знания и подготовиться к экзамену. 
 Главное окно приложения: 
-<img width="793" height="610" alt="image" src="https://github.com/user-attachments/assets/6b988503-9889-4079-ba1f-289fd816aabf" />
+<img width="792" height="598" alt="image" src="https://github.com/user-attachments/assets/06e62eb9-ab27-4ae5-84fd-bd6e34d15f4d" />
+
 
 
 Пройти тест (порядок вопросов определяется случайно): 
 <img width="795" height="599" alt="image" src="https://github.com/user-attachments/assets/73032114-ebf3-467e-a39b-0ac140114227" />
 
 После прохождения последнего вопроса теста всплывает сообщение с результатом:
-<img width="793" height="597" alt="image" src="https://github.com/user-attachments/assets/2a63de08-6a16-4e11-a260-b84b8f40ac87" />
+<img width="798" height="603" alt="image" src="https://github.com/user-attachments/assets/5d955c95-61a8-4611-b91c-268d9f692718" />
+
 
 
 Добавить вопрос:
-<img width="795" height="601" alt="image" src="https://github.com/user-attachments/assets/ad5bbf6a-f86c-450e-8b3e-498b753f7945" /> <img width="861" height="612" alt="image" src="https://github.com/user-attachments/assets/141f994d-ef2c-4f19-8603-7554b345bc4b" /> <img width="964" height="608" alt="image" src="https://github.com/user-attachments/assets/03af879c-7786-4586-8db5-8d6e75c89642" />
+<img width="802" height="609" alt="image" src="https://github.com/user-attachments/assets/7991eb5f-7eeb-4efc-b099-11d3bb37ee41" />
+<img width="1090" height="608" alt="image" src="https://github.com/user-attachments/assets/7a8cbce0-db83-4f28-b835-d0a51943b090" />
 
 
 Таблица результатов:
-<img width="801" height="603" alt="image" src="https://github.com/user-attachments/assets/dd76bc7e-f7a9-436c-8242-01369a9fd534" />
+<img width="801" height="610" alt="image" src="https://github.com/user-attachments/assets/cd238007-444f-43e5-8166-93fdd13b474c" />
+
 
 
 Удалить последний добавленный вопрос:
-<img width="946" height="642" alt="image" src="https://github.com/user-attachments/assets/b5e81e08-e20e-41cd-bca1-81dc2ff2bfd5" />
+<img width="1049" height="662" alt="image" src="https://github.com/user-attachments/assets/9836fcb3-7712-4d8d-a430-fa8cd805718a" />
+
 
 Профиль:
-<img width="803" height="606" alt="image" src="https://github.com/user-attachments/assets/d290e31b-dc6f-4bc1-843d-ff4f2a8ca7da" />
+<img width="805" height="601" alt="image" src="https://github.com/user-attachments/assets/bfe6304a-6578-4d3f-aa6a-ecab12f9375c" />
+
 
 После входа в профиль:
-<img width="803" height="605" alt="image" src="https://github.com/user-attachments/assets/a9d38c32-8553-4b72-904d-bc786a276b05" />
+<img width="797" height="601" alt="image" src="https://github.com/user-attachments/assets/ea4998d8-1cf9-46e5-8e7c-dac0e5cefe7e" />
+
 
 
 
 Кнопка "Выход" завершает программу.
 Кнопка "Войти в профиль на данный момент не работает.
 
+
+
+
+
+
+Многофайловая структура проекта:
+
+
+<img width="491" height="542" alt="image" src="https://github.com/user-attachments/assets/302d0616-c06a-49cc-a677-b9c177085866" />
+
+Универсальная библиотека классов позволяет функционировать как консольной версии приложения, так и десктопной.
+
+Старт программы происходит в форме главного меню (MenuForm). Из этой формы (в зависимости от выбора пользователя) можно попасть в другие формы.
+
+Форма MainForm отвечает за прохождение самого теста (изначально она так называлась, потому что это был единственный режим в программе - прохождение теста. В дальнейшем я сделал главное меню и остальные форма). 
+Как она устроена изнутри? У этой формы есть поля: приватный список всех вопросов, приватный номер текущего вопроса, приватный счётчик правильных ответов, приватный счётчик количества вопросов для отображения строки "Вопрос № такой-то", публичное поле "пользователь", приватное поле "таблица результатов" для записи результатов в файл после игры.
+
+Форма AddUserQuestionForm отвечает за добавление вопросов теста. Сначала вы заполняете анкету вопроса, потом нажимаете кнопку "Добавить вопрос" и вопрос добавляется в базу данных, в которой находятся все вопросы. Для простоты использовал json-базу данных.
